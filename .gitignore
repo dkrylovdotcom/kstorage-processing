@@ -1,4 +1,4 @@
 .volumes
 /dir1
 /dir2
-m
+/src/kstorage-processing
