@@ -46,16 +46,15 @@ func main() {
 
 	if len(filesToCopy) == 0 {
 		fmt.Println("There are no files to copy")
-		return
+	} else {
+		storage.CopyFiles(*fromVolume, *toVolume, filesToCopy)
 	}
-	storage.CopyFiles(*fromVolume, *toVolume, filesToCopy)
 
 	if len(filesToRemove) == 0 {
 		fmt.Println("There are no files to remove")
-		return
-	}
-
-	if (!*disableDeletion) {
-		storage.RemoveFiles(*fromVolume, *toVolume, filesToRemove)
+	} else {
+		if (!*disableDeletion) {
+			storage.RemoveFiles(*fromVolume, *toVolume, filesToRemove)
+		}
 	}
 }

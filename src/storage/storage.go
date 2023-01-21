@@ -38,12 +38,12 @@ func copy(sourceFile string, destinationFile string) {
 	}
 }
 
-func removeFile(file string) {
-	err := os.Remove(file)
+func removeFile(filePath string) {
+	err := os.Remove(filePath)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("File deleted")
+	fmt.Println("File deleted", filePath)
 }
 
 func RemoveFiles(fromVolume string, toVolume string, filesToRemove []string) {
@@ -64,7 +64,7 @@ func CopyFiles(fromVolume string, toVolume string, filesToCopy []string) {
 	for _, sourcePath := range filesToCopy {
 		pathToFile := strings.Replace(sourcePath, fromVolume, "", -1)
 		destinationPath := toVolume + "/" + volumeName + pathToFile
-		fmt.Println("Copied " + sourcePath)
+		fmt.Println("File copied" + sourcePath)
 		copy(sourcePath, destinationPath)
 
 		sourceFileCreatedAt := getFileCreatedAt(sourcePath)
