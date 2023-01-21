@@ -16,6 +16,7 @@ func getNoIndex() []string {
 }
 
 func init() {
+	// TODO::Config loader (at least for volumesCacheDirName)
 	// conf := config.Load2("/Users/dmitriykrylov/Documents/work/projects/go/kstorage-processing/config.yaml")
 	// fmt.Println(conf)
 
@@ -28,7 +29,6 @@ func main() {
 	disableDeletion := flag.Bool("disableDeletion", false, "Disable deletion of files that has been removed from the source storage")
 	noIndex := getNoIndex()
 	flag.Parse()
-	// return
 
 	if (len(*fromVolume) == 0) {
 		fmt.Println("Parameter `fromVolume` is not set")
